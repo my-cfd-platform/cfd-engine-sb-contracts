@@ -88,3 +88,16 @@ pub struct PositionPersistenceEvent {
     #[prost(message, repeated, tag = "4")]
     pub create_position: Vec<OrderSbModel>,
 }
+
+#[derive(PartialEq, ::prost::Message)]
+#[my_service_bus_macros::my_sb_entity_protobuf_model(topic_id = "engine-persistence-demo")]
+pub struct PositionPersistenceEventDemo {
+    #[prost(string, tag = "1")]
+    pub process_id: String,
+    #[prost(message, repeated, tag = "2")]
+    pub update_position: Vec<OrderSbModel>,
+    #[prost(message, repeated, tag = "3")]
+    pub close_position: Vec<OrderSbModel>,
+    #[prost(message, repeated, tag = "4")]
+    pub create_position: Vec<OrderSbModel>,
+}
