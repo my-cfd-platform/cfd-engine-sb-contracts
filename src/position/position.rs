@@ -26,9 +26,9 @@ pub struct OrderMetadata {
 
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct OrderSbModel {
-    #[prost(sint64, tag = "1")]
+    #[prost(int64, tag = "1")]
     pub create_date: i64,
-    #[prost(String, tag = "2")]
+    #[prost(string, tag = "2")]
     pub id: String,
     #[prost(string, tag = "3")]
     pub wallet_id: String,
