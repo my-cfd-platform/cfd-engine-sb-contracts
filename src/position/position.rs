@@ -45,13 +45,13 @@ pub struct OrderSbModel {
     #[prost(enumeration = "OrderSide", tag = "9")]
     pub side: i32,
     #[prost(message, tag = "10")]
-    pub tp_percent: Option<f64>,
+    pub tp_in_instrument_price: Option<f64>,
     #[prost(message, tag = "11")]
-    pub tp_rate: Option<f64>,
+    pub tp_in_currency: Option<f64>,
     #[prost(message, tag = "12")]
-    pub sl_percent: Option<f64>,
+    pub sl_in_instrument_price: Option<f64>,
     #[prost(message, tag = "13")]
-    pub sl_rate: Option<f64>,
+    pub sl_in_currency: Option<f64>,
     #[prost(uint64, tag = "14")]
     pub last_update_date: u64,
     #[prost(string, tag = "15")]
