@@ -27,17 +27,17 @@ pub struct OrderMetadata {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct OrderSbModel {
     #[prost(sint64, tag = "1")]
-    pub timestamp: i64,
-    #[prost(uint32, tag = "2")]
-    pub id: u32,
+    pub create_date: i64,
+    #[prost(String, tag = "2")]
+    pub id: String,
     #[prost(string, tag = "3")]
     pub wallet_id: String,
     #[prost(string, tag = "4")]
     pub instrument: String,
     #[prost(double, tag = "5")]
     pub invest_amount: f64,
-    #[prost(double, tag = "6")]
-    pub leverage: f64,
+    #[prost(int32, tag = "6")]
+    pub leverage: i32,
     #[prost(uint64, tag = "7")]
     pub created: u64,
     #[prost(message, tag = "8")]
@@ -54,8 +54,8 @@ pub struct OrderSbModel {
     pub sl_rate: Option<f64>,
     #[prost(uint64, tag = "14")]
     pub last_update_date: u64,
-    #[prost(message, tag = "15")]
-    pub create_process_id: Option<String>,
+    #[prost(string, tag = "15")]
+    pub create_process_id: String,
     #[prost(string, tag = "16")]
     pub last_update_process_id: String,
     #[prost(message, tag = "17")]
