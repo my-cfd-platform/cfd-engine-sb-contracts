@@ -1,5 +1,5 @@
 #[derive(PartialEq, ::prost::Message)]
-#[my_service_bus_macros::my_sb_entity_protobuf_model(topic_id = "bid-ask")]
+#[my_service_bus_macros::my_sb_entity_protobuf_model(topic_id = "bidask")]
 pub struct BidAsk {
     #[prost(string, tag = "1")]
     pub instrument_id: String,
