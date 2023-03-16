@@ -25,8 +25,8 @@ pub struct AccountBalanceUpdateOperationSbModel {
     pub delta: f64,
     #[prost(uint64, tag = "7")]
     pub date_time_unix_ms: u64,
-    #[prost(string, tag = "8")]
-    pub comment: String,
+    #[prost(message, tag = "8")]
+    pub comment: Option<String>,
     #[prost(message, tag = "9")]
     pub reference_operation_id: Option<String>,
 }
