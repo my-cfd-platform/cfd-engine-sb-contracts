@@ -1,14 +1,16 @@
+use crate::AccountBalanceUpdateSbModel;
+
 #[derive(Clone, PartialEq, ::prost::Message)]
 #[my_service_bus_macros::my_sb_entity_protobuf_model(topic_id = "account-persist-events")]
-pub struct AccountPersistEvent{
+pub struct AccountPersistEvent {
     #[prost(message, tag = "1")]
     pub add_account_event: Option<AccountSbModel>,
     #[prost(message, tag = "2")]
-    pub update_account_event: Option<AccountSbModel>,
+    pub update_account_event: Option<AccountBalanceUpdateSbModel>,
 }
 
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccountSbModel{
+pub struct AccountSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
     #[prost(string, tag = "2")]
