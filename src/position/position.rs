@@ -31,7 +31,7 @@ pub struct OrderSbModel {
     #[prost(string, tag = "2")]
     pub id: String,
     #[prost(string, tag = "3")]
-    pub wallet_id: String,
+    pub account_id: String,
     #[prost(string, tag = "4")]
     pub instrument: String,
     #[prost(double, tag = "5")]
@@ -81,12 +81,12 @@ pub struct OrderSbModel {
 pub struct PositionPersistenceEvent {
     #[prost(string, tag = "1")]
     pub process_id: String,
-    #[prost(message, repeated, tag = "2")]
-    pub update_position: Vec<OrderSbModel>,
-    #[prost(message, repeated, tag = "3")]
-    pub close_position: Vec<OrderSbModel>,
-    #[prost(message, repeated, tag = "4")]
-    pub create_position: Vec<OrderSbModel>,
+    #[prost(message, tag = "2")]
+    pub update_position: Option<OrderSbModel>,
+    #[prost(message, tag = "3")]
+    pub close_position: Option<OrderSbModel>,
+    #[prost(message, tag = "4")]
+    pub create_position: Option<OrderSbModel>,
 }
 
 #[derive(PartialEq, ::prost::Message)]
