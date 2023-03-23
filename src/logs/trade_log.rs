@@ -4,11 +4,11 @@ pub struct TradeLogSbModel {
     #[prost(uint64, tag = "1")]
     pub date_time_unix_micros: u64,
     #[prost(string, tag = "2")]
-    pub trader_id: Option<::prost::alloc::string::String>,
+    pub trader_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub account_id: ::prost::alloc::string::String,
     #[prost(string, tag = "4")]
-    pub process_id: Option<::prost::alloc::string::String>,
+    pub process_id: ::prost::alloc::string::String,
     #[prost(string, tag = "5")]
     pub message: ::prost::alloc::string::String,
     #[prost(string, tag = "6")]
