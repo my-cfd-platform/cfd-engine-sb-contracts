@@ -2,7 +2,7 @@
 #[my_service_bus_macros::my_sb_entity_protobuf_model(topic_id = "trade-log")]
 pub struct TradeLogSbModel {
     #[prost(uint64, tag = "1")]
-    pub date_time_unix_micros: u64,
+    pub date_time_unix_micros: i64,
     #[prost(string, tag = "2")]
     pub trader_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
