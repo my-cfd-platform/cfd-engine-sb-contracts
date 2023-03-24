@@ -25,25 +25,37 @@ pub struct OrderMetadata {
 }
 
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OrderSbModel {
-    #[prost(int64, tag = "1")]
-    pub create_date: i64,
-    #[prost(string, tag = "2")]
+pub struct OrderBidAskSbModel {
+    #[prost(string, tag = "1")]
     pub id: String,
+    #[prost(double, tag = "2")]
+    pub bid: f64,
+    #[prost(double, tag = "3")]
+    pub ask: f64,
+    #[prost(uint64, tag = "4")]
+    pub date: u64,
+}
+
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OrderSbModel {
+    #[prost(string, tag = "1")]
+    pub id: String,
+    #[prost(string, tag = "2")]
+    pub trader_id: String,
     #[prost(string, tag = "3")]
     pub account_id: String,
     #[prost(string, tag = "4")]
-    pub instrument: String,
+    pub asset_pair: String,
     #[prost(double, tag = "5")]
     pub invest_amount: f64,
-    #[prost(int32, tag = "6")]
-    pub leverage: i32,
-    #[prost(uint64, tag = "7")]
-    pub created: u64,
-    #[prost(message, tag = "8")]
-    pub open_price: Option<f64>,
-    #[prost(enumeration = "OrderSide", tag = "9")]
+    #[prost(enumeration = "OrderSide", tag = "6")]
     pub side: i32,
+    #[prost(double, tag = "7")]
+    pub leverage: f64,
+    #[prost(double, tag = "8")]
+    pub stop_out_percent: f64,
+    #[prost(uint64, tag = "9")]
+    pub create_date: u64,
     #[prost(message, tag = "10")]
     pub tp_in_instrument_price: Option<f64>,
     #[prost(message, tag = "11")]
@@ -52,27 +64,34 @@ pub struct OrderSbModel {
     pub sl_in_instrument_price: Option<f64>,
     #[prost(message, tag = "13")]
     pub sl_in_currency: Option<f64>,
-    #[prost(uint64, tag = "14")]
-    pub last_update_date: u64,
-    #[prost(string, tag = "15")]
+    #[prost(string, tag = "14")]
     pub create_process_id: String,
-    #[prost(string, tag = "16")]
-    pub last_update_process_id: String,
-    #[prost(message, tag = "17")]
+    #[prost(message, tag = "15")]
     pub profit: Option<f64>,
-    #[prost(message, tag = "18")]
-    pub close_date: Option<u64>,
-    #[prost(message, tag = "19")]
-    pub close_reason: Option<i32>,
-    #[prost(message, tag = "20")]
-    pub close_price: Option<f64>,
-    #[prost(message, repeated, tag = "21")]
+    #[prost(message, repeated, tag = "16")]
     pub metadata: Vec<OrderMetadata>,
+    #[prost(uint64, tag = "17")]
+    pub last_update_date: u64,
+    #[prost(string, tag = "18")]
+    pub last_update_process_id: String,
+    #[prost(double, tag = "19")]
+    pub open_price: f64,
+    #[prost(uint64, tag = "20")]
+    pub open_date: u64,
+    #[prost(string, tag = "21")]
+    pub open_process_id: String,
     #[prost(message, tag = "22")]
-    pub cancel_order_date: Option<u64>,
+    pub open_bid_ask: Option<OrderBidAskSbModel>,
+
     #[prost(message, tag = "23")]
-    pub cancel_order_process_id: Option<String>,
+    pub close_date: Option<u64>,
     #[prost(message, tag = "24")]
+    pub close_reason: Option<i32>,
+    #[prost(message, tag = "25")]
+    pub close_price: Option<f64>,
+    #[prost(message, tag = "26")]
+    pub close_bid_ask: Option<OrderBidAskSbModel>,
+    #[prost(message, tag = "27")]
     pub close_process_id: Option<String>,
 }
 
