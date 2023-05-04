@@ -82,7 +82,6 @@ pub struct OrderSbModel {
     pub open_process_id: String,
     #[prost(message, tag = "22")]
     pub open_bid_ask: Option<OrderBidAskSbModel>,
-
     #[prost(message, tag = "23")]
     pub close_date: Option<u64>,
     #[prost(message, tag = "24")]
@@ -93,6 +92,12 @@ pub struct OrderSbModel {
     pub close_bid_ask: Option<OrderBidAskSbModel>,
     #[prost(message, tag = "27")]
     pub close_process_id: Option<String>,
+    #[prost(string, tag = "28")]
+    pub base: String,
+    #[prost(string, tag = "29")]
+    pub quote: String,
+    #[prost(string, tag = "30")]
+    pub collateral_currency: String,
 }
 
 #[derive(PartialEq, ::prost::Message)]
