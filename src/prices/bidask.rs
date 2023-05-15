@@ -9,4 +9,8 @@ pub struct BidAskSbModel {
     pub bid: f64,
     #[prost(double, tag = "4")]
     pub ask: f64,
+    #[prost(message, tag = "5")]
+    pub base: Option<String>,
+    #[prost(message, tag = "6")]
+    pub quote: Option<String>,
 }
