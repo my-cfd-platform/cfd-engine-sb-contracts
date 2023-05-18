@@ -34,6 +34,10 @@ pub struct OrderBidAskSbModel {
     pub ask: f64,
     #[prost(uint64, tag = "4")]
     pub date: u64,
+    #[prost(string, tag = "5")]
+    pub base: String,
+    #[prost(string, tag = "6")]
+    pub quote: String,
 }
 
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -98,6 +102,14 @@ pub struct OrderSbModel {
     pub quote: String,
     #[prost(string, tag = "30")]
     pub collateral_currency: String,
+    #[prost(double, tag = "31")]
+    pub base_collateral_open_price: f64,
+    #[prost(message, tag = "32")]
+    pub base_collateral_open_bid_ask: Option<OrderBidAskSbModel>,
+    #[prost(double, tag = "33")]
+    pub close_quote_collateral_price: f64,
+    #[prost(message, tag = "34")]
+    pub close_quote_collateral_bid_ask: Option<OrderBidAskSbModel>,
 }
 
 #[derive(PartialEq, ::prost::Message)]
