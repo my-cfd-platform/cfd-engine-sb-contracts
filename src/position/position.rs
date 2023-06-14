@@ -79,21 +79,21 @@ pub struct OrderSbModel {
     #[prost(string, tag = "18")]
     pub last_update_process_id: String,
     #[prost(double, tag = "19")]
-    pub open_price: f64,
+    pub asset_open_price: f64,
+    #[prost(message, tag = "22")]
+    pub asset_open_bid_ask: Option<OrderBidAskSbModel>,
     #[prost(uint64, tag = "20")]
     pub open_date: u64,
     #[prost(string, tag = "21")]
     pub open_process_id: String,
-    #[prost(message, tag = "22")]
-    pub open_bid_ask: Option<OrderBidAskSbModel>,
     #[prost(message, tag = "23")]
     pub close_date: Option<u64>,
     #[prost(message, tag = "24")]
     pub close_reason: Option<i32>,
     #[prost(message, tag = "25")]
-    pub close_price: Option<f64>,
+    pub asset_close_price: Option<f64>,
     #[prost(message, tag = "26")]
-    pub close_bid_ask: Option<OrderBidAskSbModel>,
+    pub asset_close_bid_ask: Option<OrderBidAskSbModel>,
     #[prost(message, tag = "27")]
     pub close_process_id: Option<String>,
     #[prost(string, tag = "28")]
