@@ -25,6 +25,14 @@ pub struct OrderMetadata {
 }
 
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OrderSwap {
+    #[prost(double, tag = "1")]
+    pub amount: f64,
+    #[prost(uint64, tag = "2")]
+    pub date: u64,
+}
+
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct OrderBidAskSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
@@ -110,6 +118,8 @@ pub struct OrderSbModel {
     pub close_quote_collateral_price: f64,
     #[prost(message, tag = "34")]
     pub close_quote_collateral_bid_ask: Option<OrderBidAskSbModel>,
+    #[prost(message, repeated, tag = "35")]
+    pub swaps: Vec<OrderSwap>,
 }
 
 #[derive(PartialEq, ::prost::Message)]
