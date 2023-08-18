@@ -1,5 +1,6 @@
 mod accounts;
 mod candles;
+pub mod deposit;
 mod position;
 mod prices;
 
