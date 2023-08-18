@@ -1,2 +1,2 @@
 mod deposit_confirmation;
-pub use deposit::*;
+pub use deposit_confirmation::*;
