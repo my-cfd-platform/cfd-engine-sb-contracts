@@ -1,5 +1,6 @@
+service_sdk::macros::use_my_sb_entity_protobuf_model!();
 #[derive(Clone, PartialEq, ::prost::Message)]
-#[my_service_bus_macros::my_sb_entity_protobuf_model(topic_id = "bidask")]
+#[my_sb_entity_protobuf_model(topic_id = "bidask")]
 pub struct BidAskSbModel {
     #[prost(string, tag = "1")]
     pub id: ::prost::alloc::string::String,

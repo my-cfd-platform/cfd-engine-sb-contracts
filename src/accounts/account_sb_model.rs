@@ -1,7 +1,8 @@
 use crate::AccountBalanceUpdateSbModel;
 
+service_sdk::macros::use_my_sb_entity_protobuf_model!();
 #[derive(Clone, PartialEq, ::prost::Message)]
-#[my_service_bus_macros::my_sb_entity_protobuf_model(topic_id = "account-persist-events")]
+#[my_sb_entity_protobuf_model(topic_id = "account-persist-events")]
 pub struct AccountPersistEvent {
     #[prost(message, tag = "1")]
     pub add_account_event: Option<AccountSbModel>,

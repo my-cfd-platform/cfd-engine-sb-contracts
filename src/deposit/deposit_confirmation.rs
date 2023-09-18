@@ -1,5 +1,6 @@
+service_sdk::macros::use_my_sb_entity_protobuf_model!();
 #[derive(Clone, PartialEq, ::prost::Message)]
-#[my_service_bus_macros::my_sb_entity_protobuf_model(topic_id = "deposit-confirmation")]
+#[my_sb_entity_protobuf_model(topic_id = "deposit-confirmation")]
 pub struct DepositConfirmationSbModel {
     #[prost(string, tag = "1")]
     pub payment_system_id: String,

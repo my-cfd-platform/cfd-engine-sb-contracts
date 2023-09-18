@@ -1,3 +1,5 @@
+service_sdk::macros::use_my_sb_entity_protobuf_model!();
+
 #[derive(Clone, Debug, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum OrderSide {
@@ -123,7 +125,7 @@ pub struct OrderSbModel {
 }
 
 #[derive(PartialEq, ::prost::Message)]
-#[my_service_bus_macros::my_sb_entity_protobuf_model(topic_id = "engine-persistence")]
+#[my_sb_entity_protobuf_model(topic_id = "engine-persistence")]
 pub struct PositionPersistenceEvent {
     #[prost(string, tag = "1")]
     pub process_id: String,
@@ -136,7 +138,7 @@ pub struct PositionPersistenceEvent {
 }
 
 #[derive(PartialEq, ::prost::Message)]
-#[my_service_bus_macros::my_sb_entity_protobuf_model(topic_id = "engine-persistence-demo")]
+#[my_sb_entity_protobuf_model(topic_id = "engine-persistence-demo")]
 pub struct PositionPersistenceEventDemo {
     #[prost(string, tag = "1")]
     pub process_id: String,
