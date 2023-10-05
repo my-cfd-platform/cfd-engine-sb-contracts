@@ -56,10 +56,10 @@ pub struct PendingOrderSbModel {
 pub struct PendingPositionPersistenceEvent {
     #[prost(string, tag = "1")]
     pub process_id: String,
-    #[prost(message, repeated, tag = "2")]
-    pub cancel: Vec<PendingOrderSbModel>,
-    #[prost(message, repeated, tag = "3")]
-    pub execute: Vec<PendingOrderSbModel>,
-    #[prost(message, repeated, tag = "4")]
-    pub create: Vec<PendingOrderSbModel>,
+    #[prost(message, tag = "2")]
+    pub cancel: Option<PendingOrderSbModel>,
+    #[prost(message, tag = "3")]
+    pub execute: Option<PendingOrderSbModel>,
+    #[prost(message, tag = "4")]
+    pub create: Option<PendingOrderSbModel>,
 }
