@@ -47,6 +47,8 @@ pub struct PendingOrderSbModel {
     pub quote: String,
     #[prost(string, tag = "20")]
     pub collateral_currency: String,
+    #[prost(double, tag = "21")]
+    pub desire_price: f64,
 }
 
 #[derive(PartialEq, ::prost::Message)]
