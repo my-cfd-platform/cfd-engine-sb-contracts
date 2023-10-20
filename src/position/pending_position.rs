@@ -1,3 +1,4 @@
+use serde::{Deserialize, Serialize};
 use service_sdk::my_service_bus::macros::my_sb_entity_protobuf_model;
 
 use crate::{OrderMetadata, OrderSide};
@@ -6,6 +7,7 @@ use service_sdk::my_service_bus;
 
 
 #[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
 pub struct PendingOrderSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
@@ -52,6 +54,7 @@ pub struct PendingOrderSbModel {
 }
 
 #[derive(PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
 #[my_sb_entity_protobuf_model(topic_id = "pending-engine-persistence")]
 pub struct PendingPositionPersistenceEvent {
     #[prost(string, tag = "1")]

@@ -1,8 +1,11 @@
+use serde::{Serialize, Deserialize};
+
 use crate::AccountBalanceUpdateSbModel;
 
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
 #[derive(Clone, PartialEq, ::prost::Message)]
 #[my_sb_entity_protobuf_model(topic_id = "account-persist-events")]
+#[derive(Serialize, Deserialize)]
 pub struct AccountPersistEvent {
     #[prost(message, tag = "1")]
     pub add_account_event: Option<AccountSbModel>,
@@ -11,6 +14,7 @@ pub struct AccountPersistEvent {
 }
 
 #[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
 pub struct AccountSbModel {
     #[prost(string, tag = "1")]
     pub id: String,

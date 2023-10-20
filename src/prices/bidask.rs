@@ -1,6 +1,9 @@
+use serde::{Serialize, Deserialize};
+
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
 #[derive(Clone, PartialEq, ::prost::Message)]
 #[my_sb_entity_protobuf_model(topic_id = "bidask")]
+#[derive(Serialize, Deserialize)]
 pub struct BidAskSbModel {
     #[prost(string, tag = "1")]
     pub id: ::prost::alloc::string::String,

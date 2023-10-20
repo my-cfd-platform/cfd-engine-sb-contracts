@@ -1,9 +1,12 @@
+use serde::{Serialize, Deserialize};
+
 use crate::AccountSbModel;
 
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
 
 #[derive(Clone, PartialEq, ::prost::Message)]
 #[my_sb_entity_protobuf_model(topic_id = "account-balance-updated-event")]
+#[derive(Serialize, Deserialize)]
 pub struct AccountBalanceUpdateSbModel {
     #[prost(message, tag = "1")]
     pub account_after_update: Option<AccountSbModel>,
@@ -12,6 +15,7 @@ pub struct AccountBalanceUpdateSbModel {
 }
 
 #[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
 pub struct AccountBalanceUpdateOperationSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
@@ -35,6 +39,7 @@ pub struct AccountBalanceUpdateOperationSbModel {
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
+#[derive(Serialize, Deserialize)]
 pub enum AccountBalanceUpdateOperationType {
     Trading = 0,
     BalanceCorrection = 1,

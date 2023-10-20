@@ -1,6 +1,9 @@
+use serde::{Deserialize, Serialize};
+
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
 
 #[derive(Clone, Debug, ::prost::Enumeration)]
+#[derive(Serialize, Deserialize)]
 #[repr(i32)]
 pub enum OrderSide {
     Buy = 0,
@@ -8,6 +11,7 @@ pub enum OrderSide {
 }
 
 #[derive(Clone, Debug, ::prost::Enumeration)]
+#[derive(Serialize, Deserialize)]
 #[repr(i32)]
 pub enum OrderCloseReason {
     ClientCommand = 0,
@@ -19,6 +23,7 @@ pub enum OrderCloseReason {
 }
 
 #[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
 pub struct OrderMetadata {
     #[prost(string, tag = "1")]
     pub key: String,
@@ -27,6 +32,7 @@ pub struct OrderMetadata {
 }
 
 #[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
 pub struct OrderSwap {
     #[prost(double, tag = "1")]
     pub amount: f64,
@@ -35,6 +41,7 @@ pub struct OrderSwap {
 }
 
 #[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
 pub struct OrderBidAskSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
@@ -51,6 +58,7 @@ pub struct OrderBidAskSbModel {
 }
 
 #[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
 pub struct OrderSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
@@ -125,6 +133,7 @@ pub struct OrderSbModel {
 }
 
 #[derive(PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
 #[my_sb_entity_protobuf_model(topic_id = "engine-persistence")]
 pub struct PositionPersistenceEvent {
     #[prost(string, tag = "1")]
@@ -138,6 +147,7 @@ pub struct PositionPersistenceEvent {
 }
 
 #[derive(PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
 #[my_sb_entity_protobuf_model(topic_id = "engine-persistence-demo")]
 pub struct PositionPersistenceEventDemo {
     #[prost(string, tag = "1")]
