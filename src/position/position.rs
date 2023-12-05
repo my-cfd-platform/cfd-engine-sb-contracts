@@ -2,16 +2,24 @@ use serde::{Deserialize, Serialize};
 
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
 
-#[derive(Clone, Debug, ::prost::Enumeration)]
-#[derive(Serialize, Deserialize)]
+#[derive(Clone, Debug, ::prost::Enumeration, Serialize, Deserialize)]
 #[repr(i32)]
 pub enum OrderSide {
     Buy = 0,
     Sell = 1,
 }
 
-#[derive(Clone, Debug, ::prost::Enumeration)]
-#[derive(Serialize, Deserialize)]
+#[derive(Clone, Debug, ::prost::Enumeration, Serialize, Deserialize)]
+#[repr(i32)]
+pub enum OrderCloseReasonSbModel {
+    ClientCommand = 0,
+    StopOut = 1,
+    TakeProfit = 2,
+    StopLoss = 3,
+    ForceClose = 4,
+}
+
+#[derive(Clone, Debug, ::prost::Enumeration, Serialize, Deserialize)]
 #[repr(i32)]
 pub enum OrderCloseReason {
     ClientCommand = 0,
@@ -22,8 +30,7 @@ pub enum OrderCloseReason {
     AdminAction = 5,
 }
 
-#[derive(Clone, PartialEq, ::prost::Message)]
-#[derive(Serialize, Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
 pub struct OrderMetadata {
     #[prost(string, tag = "1")]
     pub key: String,
@@ -31,8 +38,7 @@ pub struct OrderMetadata {
     pub value: String,
 }
 
-#[derive(Clone, PartialEq, ::prost::Message)]
-#[derive(Serialize, Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
 pub struct OrderSwap {
     #[prost(double, tag = "1")]
     pub amount: f64,
@@ -40,8 +46,7 @@ pub struct OrderSwap {
     pub date: u64,
 }
 
-#[derive(Clone, PartialEq, ::prost::Message)]
-#[derive(Serialize, Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
 pub struct OrderBidAskSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
@@ -57,8 +62,7 @@ pub struct OrderBidAskSbModel {
     pub quote: String,
 }
 
-#[derive(Clone, PartialEq, ::prost::Message)]
-#[derive(Serialize, Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
 pub struct OrderSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
@@ -106,7 +110,11 @@ pub struct OrderSbModel {
     pub open_process_id: String,
     #[prost(message, tag = "23")]
     pub close_date: Option<u64>,
-    #[prost(message, tag = "24")]
+    #[prost(
+        optional,
+        enumeration = "OrderCloseReasonSbModel",
+        tag = "24"
+    )]
     pub close_reason: Option<i32>,
     #[prost(message, tag = "25")]
     pub asset_close_price: Option<f64>,
@@ -132,8 +140,7 @@ pub struct OrderSbModel {
     pub swaps: Vec<OrderSwap>,
 }
 
-#[derive(PartialEq, ::prost::Message)]
-#[derive(Serialize, Deserialize)]
+#[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
 #[my_sb_entity_protobuf_model(topic_id = "engine-persistence")]
 pub struct PositionPersistenceEvent {
     #[prost(string, tag = "1")]
@@ -146,8 +153,7 @@ pub struct PositionPersistenceEvent {
     pub create_position: Option<OrderSbModel>,
 }
 
-#[derive(PartialEq, ::prost::Message)]
-#[derive(Serialize, Deserialize)]
+#[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
 #[my_sb_entity_protobuf_model(topic_id = "engine-persistence-demo")]
 pub struct PositionPersistenceEventDemo {
     #[prost(string, tag = "1")]
