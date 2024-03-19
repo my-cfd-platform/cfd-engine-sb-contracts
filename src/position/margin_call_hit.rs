@@ -11,8 +11,6 @@ pub struct PositionManagerPositionMarginCallHit{
     pub trader_id: String,
     #[prost(string, tag = "3")]
     pub account_id: String,
-    #[prost(double, optional, tag = "4")]
-    pub topping_up_amount: Option<f64>,
-    #[prost(double, tag = "5")]
+    #[prost(double, tag = "4")]
     pub margin_call_percent: f64,
 }

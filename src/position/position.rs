@@ -138,6 +138,12 @@ pub struct OrderSbModel {
     pub close_quote_collateral_bid_ask: Option<OrderBidAskSbModel>,
     #[prost(message, repeated, tag = "35")]
     pub swaps: Vec<OrderSwap>,
+    #[prost(message, optional, tag = "36")]
+    pub topping_up_percent: Option<f64>,
+    #[prost(message, optional, tag = "37")]
+    pub topping_up_amount: Option<f64>,
+    #[prost(message, optional, tag = "38")]
+    pub margin_call_percent: Option<f64>,
 }
 
 #[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
