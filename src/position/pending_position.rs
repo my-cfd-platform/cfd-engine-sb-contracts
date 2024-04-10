@@ -70,3 +70,13 @@ pub struct PendingPositionPersistenceEvent {
     #[prost(message, tag = "4")]
     pub create: Option<PendingOrderSbModel>,
 }
+
+#[derive(PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
+#[my_sb_entity_protobuf_model(topic_id = "pending-need-approve")]
+pub struct PendingOrderNeedApproveEvent{
+    #[prost(string, tag = "1")]
+    pub process_id: String,
+    #[prost(message, tag = "2")]
+    pub order: Option<PendingOrderSbModel>
+}
