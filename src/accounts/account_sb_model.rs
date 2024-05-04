@@ -1,4 +1,4 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 use crate::AccountBalanceUpdateSbModel;
 
@@ -13,8 +13,7 @@ pub struct AccountPersistEvent {
     pub update_account_event: Option<AccountBalanceUpdateSbModel>,
 }
 
-#[derive(Clone, PartialEq, ::prost::Message)]
-#[derive(Serialize, Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
 pub struct AccountSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
@@ -36,4 +35,14 @@ pub struct AccountSbModel {
     pub create_process_id: String,
     #[prost(string, tag = "10")]
     pub trading_group: String,
+    #[prost(repeated, message, tag = "11")]
+    pub metadata: Vec<AccountSbMetadataModel>,
+}
+
+#[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
+pub struct AccountSbMetadataModel {
+    #[prost(string, tag = "1")]
+    pub key: String,
+    #[prost(string, tag = "2")]
+    pub value: String,
 }
