@@ -51,6 +51,10 @@ pub struct PendingOrderSbModel {
     pub collateral_currency: String,
     #[prost(double, tag = "21")]
     pub desire_price: f64,
+    #[prost(message, optional, tag = "22")]
+    pub topping_up_percent: Option<f64>,
+    #[prost(message, optional, tag = "23")]
+    pub margin_call_percent: Option<f64>,
 }
 
 #[derive(PartialEq, ::prost::Message)]
@@ -65,4 +69,14 @@ pub struct PendingPositionPersistenceEvent {
     pub execute: Option<PendingOrderSbModel>,
     #[prost(message, tag = "4")]
     pub create: Option<PendingOrderSbModel>,
+}
+
+#[derive(PartialEq, ::prost::Message)]
+#[derive(Serialize, Deserialize)]
+#[my_sb_entity_protobuf_model(topic_id = "pending-need-approve")]
+pub struct PendingOrderNeedApproveEvent{
+    #[prost(string, tag = "1")]
+    pub process_id: String,
+    #[prost(message, tag = "2")]
+    pub order: Option<PendingOrderSbModel>
 }

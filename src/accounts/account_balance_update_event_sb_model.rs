@@ -45,4 +45,5 @@ pub enum AccountBalanceUpdateOperationType {
     BalanceCorrection = 1,
     Withdrawal = 2,
     Deposit = 3,
+    ToppingUp = 4,
 }
