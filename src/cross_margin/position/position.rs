@@ -140,12 +140,10 @@ pub struct CrossMarginOrderSbModel {
     pub swaps: Vec<CrossMarginOrderSwap>,
     #[prost(double, tag = "36")]
     pub lost_size: f64,
-
-
 }
 
 #[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
-#[my_sb_entity_protobuf_model(topic_id = "cross-margin-engine-persistence")]
+#[my_sb_entity_protobuf_model(topic_id = "cross-margin-position-persistence")]
 pub struct CrossMarginPositionPersistenceEvent {
     #[prost(string, tag = "1")]
     pub process_id: String,
