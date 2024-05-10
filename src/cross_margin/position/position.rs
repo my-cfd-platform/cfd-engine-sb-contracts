@@ -148,9 +148,9 @@ pub struct CrossMarginPositionPersistenceEvent {
     #[prost(string, tag = "1")]
     pub process_id: String,
     #[prost(message, tag = "2")]
-    pub update_position: Option<CrossMarginOrderSbModel>,
+    pub created: Option<CrossMarginOrderSbModel>,
     #[prost(message, tag = "3")]
-    pub close_position: Option<CrossMarginOrderSbModel>,
+    pub updated: Option<CrossMarginOrderSbModel>,
     #[prost(message, tag = "4")]
-    pub create_position: Option<CrossMarginOrderSbModel>,
+    pub closed: Option<CrossMarginOrderSbModel>,
 }

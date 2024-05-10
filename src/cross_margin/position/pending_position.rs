@@ -57,9 +57,9 @@ pub struct CrossMarginPendingOrderPersistenceEvent {
     #[prost(string, tag = "1")]
     pub process_id: String,
     #[prost(message, tag = "2")]
-    pub update_position: Option<CrossMarginPendingOrderSbModel>,
+    pub created: Option<CrossMarginPendingOrderSbModel>,
     #[prost(message, tag = "3")]
-    pub close_position: Option<CrossMarginPendingOrderSbModel>,
+    pub updated: Option<CrossMarginPendingOrderSbModel>,
     #[prost(message, tag = "4")]
-    pub create_position: Option<CrossMarginPendingOrderSbModel>,
+    pub removed: Option<CrossMarginPendingOrderSbModel>,
 }
