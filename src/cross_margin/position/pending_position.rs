@@ -48,3 +48,16 @@ pub struct PendingOrderSbModel {
     #[prost(double, tag = "22")]
     pub lots_size: f64,
 }
+
+#[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
+#[my_sb_entity_protobuf_model(topic_id = "cross-margin-engine-persistence")]
+pub struct PositionPersistenceEvent {
+    #[prost(string, tag = "1")]
+    pub process_id: String,
+    #[prost(message, tag = "2")]
+    pub update_position: Option<PendingOrderSbModel>,
+    #[prost(message, tag = "3")]
+    pub close_position: Option<PendingOrderSbModel>,
+    #[prost(message, tag = "4")]
+    pub create_position: Option<PendingOrderSbModel>,
+}
