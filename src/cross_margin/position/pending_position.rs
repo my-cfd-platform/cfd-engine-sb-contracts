@@ -1,6 +1,8 @@
 use crate::{CrossMarginOrderMetadata, CrossMarginOrderSide};
 use serde::{Deserialize, Serialize};
 
+service_sdk::macros::use_my_sb_entity_protobuf_model!();
+
 #[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
 pub struct CrossMarginPendingOrderSbModel {
     #[prost(string, tag = "1")]
