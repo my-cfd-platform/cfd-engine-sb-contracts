@@ -73,7 +73,7 @@ pub struct CrossMarginOrderSbModel {
     #[prost(string, tag = "4")]
     pub asset_pair: String,
     #[prost(double, tag = "5")]
-    pub lost_amount: f64,
+    pub lots_amount: f64,
     #[prost(enumeration = "CrossMarginOrderSide", tag = "6")]
     pub side: i32,
     #[prost(double, tag = "7")]
