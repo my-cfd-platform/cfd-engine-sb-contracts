@@ -2,7 +2,7 @@ use crate::{CrossMarginOrderMetadata, CrossMarginOrderSide};
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
-pub struct PendingOrderSbModel {
+pub struct CrossMarginPendingOrderSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
     #[prost(string, tag = "2")]
@@ -51,13 +51,13 @@ pub struct PendingOrderSbModel {
 
 #[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
 #[my_sb_entity_protobuf_model(topic_id = "cross-margin-engine-persistence")]
-pub struct PositionPersistenceEvent {
+pub struct CrossMarginPositionPersistenceEvent {
     #[prost(string, tag = "1")]
     pub process_id: String,
     #[prost(message, tag = "2")]
-    pub update_position: Option<PendingOrderSbModel>,
+    pub update_position: Option<CrossMarginPendingOrderSbModel>,
     #[prost(message, tag = "3")]
-    pub close_position: Option<PendingOrderSbModel>,
+    pub close_position: Option<CrossMarginPendingOrderSbModel>,
     #[prost(message, tag = "4")]
-    pub create_position: Option<PendingOrderSbModel>,
+    pub create_position: Option<CrossMarginPendingOrderSbModel>,
 }
