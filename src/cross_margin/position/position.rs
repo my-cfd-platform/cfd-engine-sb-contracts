@@ -145,8 +145,8 @@ pub struct CrossMarginOrderSbModel {
 }
 
 #[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
-#[my_sb_entity_protobuf_model(topic_id = "engine-persistence")]
-pub struct PositionPersistenceEvent {
+#[my_sb_entity_protobuf_model(topic_id = "cross-margin-engine-persistence")]
+pub struct CrossMarginPositionPersistenceEvent {
     #[prost(string, tag = "1")]
     pub process_id: String,
     #[prost(message, tag = "2")]
@@ -155,17 +155,4 @@ pub struct PositionPersistenceEvent {
     pub close_position: Option<CrossMarginOrderSbModel>,
     #[prost(message, tag = "4")]
     pub create_position: Option<CrossMarginOrderSbModel>,
-}
-
-#[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
-#[my_sb_entity_protobuf_model(topic_id = "engine-persistence-demo")]
-pub struct PositionPersistenceEventDemo {
-    #[prost(string, tag = "1")]
-    pub process_id: String,
-    #[prost(message, repeated, tag = "2")]
-    pub update_position: Vec<CrossMarginOrderSbModel>,
-    #[prost(message, repeated, tag = "3")]
-    pub close_position: Vec<CrossMarginOrderSbModel>,
-    #[prost(message, repeated, tag = "4")]
-    pub create_position: Vec<CrossMarginOrderSbModel>,
 }
