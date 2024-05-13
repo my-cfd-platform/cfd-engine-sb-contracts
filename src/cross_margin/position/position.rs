@@ -61,7 +61,6 @@ pub struct CrossMarginOrderBidAskSbModel {
     #[prost(string, tag = "6")]
     pub quote: String,
 }
-
 #[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
 pub struct CrossMarginOrderSbModel {
     #[prost(string, tag = "1")]
@@ -73,13 +72,11 @@ pub struct CrossMarginOrderSbModel {
     #[prost(string, tag = "4")]
     pub asset_pair: String,
     #[prost(double, tag = "5")]
-    pub lots_amount: f64,
+    pub lost_amount: f64,
     #[prost(enumeration = "CrossMarginOrderSide", tag = "6")]
     pub side: i32,
     #[prost(double, tag = "7")]
     pub leverage: f64,
-    #[prost(double, tag = "8")]
-    pub stop_out_percent: f64,
     #[prost(uint64, tag = "9")]
     pub create_date: u64,
     #[prost(message, tag = "10")]
@@ -129,17 +126,19 @@ pub struct CrossMarginOrderSbModel {
     #[prost(string, tag = "30")]
     pub collateral_currency: String,
     #[prost(double, tag = "31")]
-    pub base_collateral_open_price: f64,
+    pub margin_price: f64,
     #[prost(message, tag = "32")]
-    pub base_collateral_open_bid_ask: Option<CrossMarginOrderBidAskSbModel>,
-    #[prost(double, tag = "33")]
-    pub close_quote_collateral_price: f64,
+    pub margin_bid_ask: Option<CrossMarginOrderBidAskSbModel>,
+    #[prost(optional, double, tag = "33")]
+    pub profit_price: Option<f64>,
     #[prost(message, tag = "34")]
-    pub close_quote_collateral_bid_ask: Option<CrossMarginOrderBidAskSbModel>,
+    pub profit_bid_ask: Option<CrossMarginOrderBidAskSbModel>,
     #[prost(message, repeated, tag = "35")]
     pub swaps: Vec<CrossMarginOrderSwap>,
     #[prost(double, tag = "36")]
-    pub lost_size: f64,
+    pub lots_amount: f64,
+    #[prost(double, tag = "37")]
+    pub lots_size: f64,
 }
 
 #[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
