@@ -1,4 +1,4 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -17,4 +17,10 @@ pub struct BidAskSbModel {
     pub base: ::prost::alloc::string::String,
     #[prost(string, tag = "6")]
     pub quote: ::prost::alloc::string::String,
+}
+
+impl service_sdk::rust_extensions::sorted_vec::EntityWithStrKey for BidAskSbModel {
+    fn get_key(&self) -> &str {
+        self.id.as_str()
+    }
 }
