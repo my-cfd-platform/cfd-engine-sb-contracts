@@ -4,9 +4,7 @@ use crate::CrossMarginAccountSbModel;
 
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
 
-#[derive(Clone, PartialEq, ::prost::Message)]
-#[my_sb_entity_protobuf_model(topic_id = "cross-margin-account-balance-updated-event")]
-#[derive(Serialize, Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
 pub struct CrossMarginAccountBalanceUpdateSbModel {
     #[prost(message, tag = "1")]
     pub account_after_update: Option<CrossMarginAccountSbModel>,
@@ -22,7 +20,10 @@ pub struct CrossMarginAccountBalanceUpdateOperationSbModel {
     pub trader_id: String,
     #[prost(string, tag = "3")]
     pub account_id: String,
-    #[prost(enumeration = "CrossMarginAccountBalanceUpdateOperationType", tag = "4")]
+    #[prost(
+        enumeration = "CrossMarginAccountBalanceUpdateOperationType",
+        tag = "4"
+    )]
     pub operation_type: i32,
     #[prost(message, tag = "5")]
     pub process_id: Option<String>,
