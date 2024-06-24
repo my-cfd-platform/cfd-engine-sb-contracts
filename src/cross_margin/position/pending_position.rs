@@ -17,10 +17,6 @@ pub struct CrossMarginPendingOrderSbModel {
     pub lots_amount: f64,
     #[prost(enumeration = "CrossMarginOrderSide", tag = "6")]
     pub side: i32,
-    #[prost(double, tag = "7")]
-    pub leverage: f64,
-    #[prost(double, tag = "8")]
-    pub stop_out_percent: f64,
     #[prost(uint64, tag = "9")]
     pub create_date: u64,
     #[prost(message, tag = "10")]
