@@ -1,29 +1,28 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 use crate::AccountSbModel;
 
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
 
 #[derive(Clone, PartialEq, ::prost::Message)]
-#[my_sb_entity_protobuf_model(topic_id = "cross-margin-account-balance-updated-event")]
+#[my_sb_entity_protobuf_model(topic_id = "account-balance-updated-event")]
 #[derive(Serialize, Deserialize)]
-pub struct CrossMarginAccountBalanceUpdateSbModel {
+pub struct AccountBalanceUpdateSbModel {
     #[prost(message, tag = "1")]
     pub account_after_update: Option<AccountSbModel>,
     #[prost(message, tag = "2")]
-    pub operation: Option<CrossMarginAccountBalanceUpdateOperationSbModel>,
+    pub operation: Option<AccountBalanceUpdateOperationSbModel>,
 }
 
-#[derive(Clone, PartialEq, ::prost::Message)]
-#[derive(Serialize, Deserialize)]
-pub struct CrossMarginAccountBalanceUpdateOperationSbModel {
+#[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
+pub struct AccountBalanceUpdateOperationSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
     #[prost(string, tag = "2")]
     pub trader_id: String,
     #[prost(string, tag = "3")]
     pub account_id: String,
-    #[prost(enumeration = "CrossMarginAccountBalanceUpdateOperationType", tag = "4")]
+    #[prost(enumeration = "AccountBalanceUpdateOperationType", tag = "4")]
     pub operation_type: i32,
     #[prost(message, tag = "5")]
     pub process_id: Option<String>,
@@ -40,15 +39,9 @@ pub struct CrossMarginAccountBalanceUpdateOperationSbModel {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 #[derive(Serialize, Deserialize)]
-pub enum CrossMarginAccountBalanceUpdateOperationType {
+pub enum AccountBalanceUpdateOperationType {
     Trading = 0,
     BalanceCorrection = 1,
     Withdrawal = 2,
     Deposit = 3,
-    WithdrawalCanceled = 4,
-    ToppingUp = 5,
-    Dividends = 6,
-    Bonus = 7,
-    Credit = 8,
-    Voucher = 9,
 }

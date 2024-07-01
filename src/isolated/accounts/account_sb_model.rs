@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use crate::AccountBalanceUpdateSbModel;
+use super::AccountBalanceUpdateSbModel;
 
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
 #[derive(Clone, PartialEq, ::prost::Message)]
