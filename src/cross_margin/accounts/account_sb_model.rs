@@ -14,6 +14,14 @@ pub struct CrossMarginAccountPersistEvent {
 }
 
 #[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
+pub struct CrossMarginAccountMetadata {
+    #[prost(string, tag = "1")]
+    pub key: String,
+    #[prost(string, tag = "2")]
+    pub value: String,
+}
+
+#[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
 pub struct CrossMarginAccountSbModel {
     #[prost(string, tag = "1")]
     pub id: String,
@@ -39,4 +47,6 @@ pub struct CrossMarginAccountSbModel {
     pub last_update_process_id: String,
     #[prost(string, tag = "12")]
     pub create_process_id: String,
+    #[prost(message, repeated, tag = "13")]
+    pub metadata: Vec<CrossMarginAccountMetadata>,
 }
