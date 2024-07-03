@@ -45,6 +45,8 @@ pub struct CrossMarginPendingOrderSbModel {
     pub desire_price: f64,
     #[prost(double, tag = "22")]
     pub lots_size: f64,
+    #[prost(message, tag = "23")]
+    pub execute_price: Option<f64>,
 }
 
 #[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
@@ -55,7 +57,9 @@ pub struct CrossMarginPendingOrderPersistenceEvent {
     #[prost(message, tag = "2")]
     pub created: Option<CrossMarginPendingOrderSbModel>,
     #[prost(message, tag = "3")]
-    pub updated: Option<CrossMarginPendingOrderSbModel>,
+    pub canceled: Option<CrossMarginPendingOrderSbModel>,
     #[prost(message, tag = "4")]
-    pub removed: Option<CrossMarginPendingOrderSbModel>,
+    pub failed: Option<CrossMarginPendingOrderSbModel>,
+    #[prost(message, tag = "5")]
+    pub executed: Option<CrossMarginPendingOrderSbModel>,
 }
