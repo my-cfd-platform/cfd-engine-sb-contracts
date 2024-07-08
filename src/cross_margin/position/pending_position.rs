@@ -3,6 +3,13 @@ use serde::{Deserialize, Serialize};
 
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
 
+#[derive(Clone, Debug, ::prost::Enumeration, Serialize, Deserialize)]
+#[repr(i32)]
+pub enum CrossMarginPendingOrderType {
+    Stop = 0,
+    Limit = 1,
+}
+
 #[derive(Clone, PartialEq, ::prost::Message, Serialize, Deserialize)]
 pub struct CrossMarginPendingOrderSbModel {
     #[prost(string, tag = "1")]
@@ -45,6 +52,10 @@ pub struct CrossMarginPendingOrderSbModel {
     pub desire_price: f64,
     #[prost(double, tag = "22")]
     pub lots_size: f64,
+    #[prost(message, tag = "23")]
+    pub execute_price: Option<f64>,
+    #[prost(enumeration = "CrossMarginPendingOrderType", tag = "24")]
+    pub order_type: i32,
 }
 
 #[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
@@ -55,7 +66,9 @@ pub struct CrossMarginPendingOrderPersistenceEvent {
     #[prost(message, tag = "2")]
     pub created: Option<CrossMarginPendingOrderSbModel>,
     #[prost(message, tag = "3")]
-    pub updated: Option<CrossMarginPendingOrderSbModel>,
+    pub canceled: Option<CrossMarginPendingOrderSbModel>,
     #[prost(message, tag = "4")]
-    pub removed: Option<CrossMarginPendingOrderSbModel>,
+    pub failed: Option<CrossMarginPendingOrderSbModel>,
+    #[prost(message, tag = "5")]
+    pub executed: Option<CrossMarginPendingOrderSbModel>,
 }
