@@ -1,4 +1,4 @@
-use crate::CrossMarginOrderMetadata;
+use crate::{CrossMarginOrderMetadata, CrossMarginOrderSide, CrossMarginPendingOrderType};
 use serde::{Deserialize, Serialize};
 
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
