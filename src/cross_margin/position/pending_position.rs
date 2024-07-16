@@ -1,4 +1,4 @@
-use crate::{CrossMarginOrderMetadata, CrossMarginOrderSide};
+use crate::CrossMarginOrderMetadata;
 use serde::{Deserialize, Serialize};
 
 service_sdk::macros::use_my_sb_entity_protobuf_model!();
@@ -56,7 +56,7 @@ pub struct CrossMarginPendingOrderSbModel {
     pub execute_price: Option<f64>,
     #[prost(enumeration = "CrossMarginPendingOrderType", tag = "24")]
     pub order_type: i32,
-    #[prost(double, tag = "24")]
+    #[prost(double, tag = "25")]
     pub init_price: f64,
 }
 
