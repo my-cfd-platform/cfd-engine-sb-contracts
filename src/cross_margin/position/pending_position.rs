@@ -56,6 +56,8 @@ pub struct CrossMarginPendingOrderSbModel {
     pub execute_price: Option<f64>,
     #[prost(enumeration = "CrossMarginPendingOrderType", tag = "24")]
     pub order_type: i32,
+    #[prost(double, tag = "24")]
+    pub init_price: f64,
 }
 
 #[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
