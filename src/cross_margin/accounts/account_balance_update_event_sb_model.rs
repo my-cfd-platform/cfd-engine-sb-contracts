@@ -46,4 +46,5 @@ pub enum CrossMarginAccountBalanceUpdateOperationType {
     Withdrawal = 2,
     Deposit = 3,
     ToppingUp = 4,
+    Commission = 5,
 }
