@@ -73,4 +73,6 @@ pub struct CrossMarginPendingOrderPersistenceEvent {
     pub failed: Option<CrossMarginPendingOrderSbModel>,
     #[prost(message, tag = "5")]
     pub executed: Option<CrossMarginPendingOrderSbModel>,
+    #[prost(message, tag = "6")]
+    pub updated: Option<CrossMarginPendingOrderSbModel>,
 }
