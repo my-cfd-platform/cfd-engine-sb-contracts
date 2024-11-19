@@ -141,6 +141,11 @@ pub struct CrossMarginOrderSbModel {
     pub lots_size: f64,
     #[prost(message, tag = "38")]
     pub commission: Option<f64>,
+    #[prost(optional, message, tag = "39")]
+    pub desire_price: Option<f64>,
+    #[prost(optional, message, tag = "40")]
+    pub init_price: Option<f64>,
+
 }
 
 #[derive(PartialEq, ::prost::Message, Serialize, Deserialize)]
